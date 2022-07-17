@@ -8,9 +8,9 @@ const Create = () => {
     let navigate = useNavigate();
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [checkbox, setCheckbox] = useState(false)  
-  
+    const [checkbox, setCheckbox] = useState(false)   
 
+    // Post Data using axios oprations & with navigate. 
     const sendDataToApi = () => {
         axios
         .post(`https://62d25884afb0b03fc5a543b7.mockapi.io/Crud`,{
@@ -22,8 +22,7 @@ const Create = () => {
         })
         console.log(firstName);
         console.log(lastName);
-        console.log(checkbox);
-
+        console.log(checkbox); 
     }
     return (
         <>

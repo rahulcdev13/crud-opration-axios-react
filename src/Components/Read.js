@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 const Read = () => {
     const [readData, setReadData] = useState([])
+
+    // Fetch data and dis[lay in Table Form from API using axios. 
     useEffect(() => {
         axios
             .get(`https://62d25884afb0b03fc5a543b7.mockapi.io/Crud`)
@@ -14,16 +16,20 @@ const Read = () => {
             })
     }, []);
     console.log(readData);
+    // ================================================================================
 
-    const setUpdateId = (id, firstName, lastName,checkbox) => {
+    // Onbutton get all data and setItem using localStorage for updatation 
+    const setUpdateId = (id, firstName, lastName, checkbox) => {
         localStorage.setItem('ID', id);
         localStorage.setItem('firstName', firstName);
         localStorage.setItem('lastName', lastName);
         localStorage.setItem('Checkbox Value', checkbox)
         console.log({ id, firstName, lastName });
     }
+    // ================================================================================
 
-    const getData = () => {
+    // First Get data for Delete oprations
+    const getAllData = () => {
         axios
             .get(`https://62d25884afb0b03fc5a543b7.mockapi.io/Crud`)
             .then((getdata) => {
@@ -31,17 +37,19 @@ const Read = () => {
             })
     }
 
+    // onClick Delete oprations 
     const setDeleteId = (id) => {
         axios.delete(`https://62d25884afb0b03fc5a543b7.mockapi.io/Crud/${id}`)
             .then(() => {
-                getData();
+                getAllData();
             })
     }
+    // ================================================================================
 
     return (
         <>
-        <h2>CRUD Operations with React and Axios</h2>                        
-        <Link to='/'><button className="btn btn-success me-4">Create New User</button></Link>
+            <h2>CRUD Operations with React and Axios</h2>
+            <Link to='/'><button className="btn btn-success me-4">Create New User</button></Link>
             <Table className="table" striped bordered hover>
                 <thead>
                     <tr>
