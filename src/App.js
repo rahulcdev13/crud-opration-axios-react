@@ -12,10 +12,9 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-          <div>
-            <h2>CRUD Operations with React and Axios</h2>
+          <div> 
             <Routes>
-              <Route exact path="/create" element={<Create />} ></Route>
+              <Route exact path="/" element={<Create />} ></Route>
               <Route exact path="/read" element={<Read />} ></Route>
               <Route path="/delete" element={<Delete />} ></Route>
               <Route path="/update" element={<Update />} ></Route>
